@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Arpit Dahal - Cybersecurity Specialist & System Administrator Portfolio">
+    <title>Arpit Dahal | Cybersecurity & System Administration</title>
+    <style>
+        :root {
+            --bg-color: #0a0f1c;
+            --card-bg: #111827;
+            --text-primary: #f3f4f6;
+            --text-secondary: #9ca3af;
+            --accent-color: #0ea5e9;
+            --accent-hover: #38bdf8;
+            --border-color: #1f2937;
+            --success: #10b981;
+            --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--accent-color);
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--accent-hover);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        section:last-child {
+            border-bottom: none;
+        }
+
+        h1, h2, h3 {
+            color: var(--text-primary);
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 40px;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--accent-color);
+            margin-bottom: 30px;
+            box-shadow: 0 0 20px rgba(14, 165, 233, 0.3);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+        }
+
+        .hero-tagline {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: #fff;
+            padding: 12px 30px;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+            color: #fff;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 30px;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+        }
+
+        .project-title {
+            font-size: 1.25rem;
+            margin-bottom: 15px;
+            color: var(--text-primary);
+        }
+
+        .project-desc {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tech-tag {
+            background-color: rgba(14, 165, 233, 0.1);
+            color: var(--accent-color);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category {
+            background-color: var(--card-bg);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .skill-category h3 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: var(--accent-color);
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        .skill-list li::before {
+            content: '▹';
+            color: var(--success);
+            margin-right: 10px;
+        }
+
+        /* Certifications */
+        .cert-card {
+            display: flex;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 20px;
+        }
+
+        .cert-icon {
+            font-size: 2rem;
+            margin-right: 20px;
+            color: var(--success);
+        }
+
+        .cert-info h3 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .cert-issuer {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            text-align: center;
+            padding-bottom: 100px;
+        }
+
+        .contact p {
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.25rem;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <img src="profile.jpg" alt="Arpit Dahal" class="profile-img">
+            <h1>Arpit Dahal</h1>
+            <p class="hero-tagline">System Administrator transitioning to Cybersecurity | Blue Team | Cloud Security</p>
+            <a href="#contact" class="btn">Get in Touch</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>
+                        I am a dedicated System Administrator with over 2.5 years of experience in enterprise Service Desk environments, now pivoting my career towards Cybersecurity. My background in troubleshooting, networking, and cloud administration (Azure/M365) provides a strong foundation for securing infrastructure and managing identity access.
+                    </p>
+                    <p>
+                        I am passionate about Blue Team operations, including Incident Response and Security Operations (SOC). I actively hone my skills through simulated labs, pentesting practice, and continuous learning in cloud security and vulnerability management.
+                    </p>
+                    <p>
+                        My goal is to leverage my operational experience and security training to protect organizational assets as a Security Engineer or SOC Analyst.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="projects-grid">
+                
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <h3 class="project-title">Corporate Network Pentest & Remediation Lab</h3>
+                    <p class="project-desc">
+                        Designed and secured a simulated corporate network environment. Conducted attack simulations using Kali Linux against an Active Directory domain to identify vulnerabilities, followed by implementing detection rules and remediation strategies.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Active Directory</span>
+                        <span class="tech-tag">Kali Linux</span>
+                        <span class="tech-tag">Metasploit</span>
+                        <span class="tech-tag">Nmap</span>
+                        <span class="tech-tag">Remediation</span>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <h3 class="project-title">Cybersecurity Homelab</h3>
+                    <p class="project-desc">
+                        Built a comprehensive homelab to simulate real-world enterprise infrastructure. Configured Windows Server with AD, DNS, and DHCP services, integrated Windows 11 clients, and deployed vulnerable targets for security testing and traffic analysis.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Windows Server</span>
+                        <span class="tech-tag">Virtualization</span>
+                        <span class="tech-tag">Network Security</span>
+                        <span class="tech-tag">DNS/DHCP</span>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <h3 class="project-title">CVE-2025-32462 Testing Project</h3>
+                    <p class="project-desc">
+                        Conducted controlled testing of a local privilege escalation vulnerability in sudo. Documented the exploitation process and mitigation steps to understand the mechanics of privilege escalation and patch management.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Vulnerability Research</span>
+                        <span class="tech-tag">Privilege Escalation</span>
+                        <span class="tech-tag">Documentation</span>
+                        <span class="tech-tag">Linux Security</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                
+                <div class="skill-category">
+                    <h3>Cybersecurity</h3>
+                    <ul class="skill-list">
+                        <li>Blue Team Operations</li>
+                        <li>Incident Response</li>
+                        <li>Vulnerability Assessment</li>
+                        <li>Pentesting Basics</li>
+                        <li>IAM & Access Control</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Cloud & Systems</h3>
+                    <ul class="skill-list">
+                        <li>Azure & Microsoft 365</li>
+                        <li>Windows Server Administration</li>
+                        <li>Active Directory</li>
+                        <li>Linux (Kali, Ubuntu)</li>
+                        <li>Virtualization (VMware/Hyper-V)</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Tools</h3>
+                    <ul class="skill-list">
+                        <li>Nmap & Metasploit</li>
+                        <li>Wireshark</li>
+                        <li>Burp Suite</li>
+                        <li>SIEM (Concept & Usage)</li>
+                        <li>Ticket Management Systems</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications">
+        <div class="container">
+            <h2>Certifications</h2>
+            <div class="cert-card">
+                <div class="cert-icon">🛡️</div>
+                <div class="cert-info">
+                    <h3>Certified in Cybersecurity (CC)</h3>
+                    <p class="cert-issuer">ISC2</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <p>
+                I am actively seeking opportunities in Security Engineering, SOC Analysis, and Cloud Security. 
+                If you are looking for a dedicated professional with a strong system administration background and a passion for security, let's connect.
+            </p>
+            <div class="social-links">
+                <a href="mailto:contact@arpitdahal.com" class="btn">Email Me</a>
+                <!-- Replace # with actual LinkedIn URL -->
+                <a href="https://linkedin.com/in/arpit-dahal" target="_blank" class="btn" style="background-color: #0077b5;">LinkedIn</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Arpit Dahal. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
