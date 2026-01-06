@@ -12,6 +12,7 @@ import { SceneContact } from "@/components/SceneContact";
 
 export default function Home() {
   useEffect(() => {
+    // This now safely registers or does nothing if already registered
     registerGsap();
     // Force scroll to top on load to ensure animations play correctly
     window.scrollTo(0, 0);

@@ -1,12 +1,10 @@
 "use client";
 
 import { useRef, useState } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap, ScrollTrigger, useIsomorphicLayoutEffect } from "@/lib/gsap";
 import { projects } from "@/content/projects";
 import { cn } from "@/lib/utils";
 import { useReducedMotion } from "@/lib/motion";
-import { useIsomorphicLayoutEffect } from "@/lib/gsap";
 
 export const SceneProjects = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -14,7 +12,7 @@ export const SceneProjects = () => {
   const prefersReducedMotion = useReducedMotion();
 
   useIsomorphicLayoutEffect(() => {
-    // Register plugin locally
+    // Ensure plugin is registered
     gsap.registerPlugin(ScrollTrigger);
 
     const ctx = gsap.context(() => {
