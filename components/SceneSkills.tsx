@@ -1,42 +1,11 @@
 "use client";
 
-import { useRef, useLayoutEffect } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { skills } from "@/content/skills";
-import { useReducedMotion } from "@/lib/motion";
 import { Check } from "lucide-react";
 
 export const SceneSkills = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const prefersReducedMotion = useReducedMotion();
-
-  useLayoutEffect(() => {
-    if (prefersReducedMotion) return;
-    
-    gsap.registerPlugin(ScrollTrigger);
-
-    const ctx = gsap.context(() => {
-      gsap.from(".skill-category", {
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top 70%",
-          end: "bottom 70%",
-          toggleActions: "play none none reverse",
-        },
-        y: 50,
-        opacity: 0,
-        stagger: 0.15,
-        duration: 0.8,
-        ease: "power2.out",
-      });
-    }, containerRef);
-
-    return () => ctx.revert();
-  }, [prefersReducedMotion]);
-
   return (
-    <section id="skills" ref={containerRef} className="py-24 md:py-32 bg-surface/20">
+    <section id="skills" className="py-24 md:py-32 bg-surface/20">
       <div className="container mx-auto px-6">
         <div className="mb-16 md:mb-24 text-center max-w-2xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Technical Capabilities</h2>
@@ -49,7 +18,7 @@ export const SceneSkills = () => {
           {skills.map((group, idx) => (
             <div
               key={idx}
-              className="skill-category bg-background border border-white/5 p-8 rounded-xl hover:border-white/10 transition-colors"
+              className="skill-category bg-background border border-white/5 p-8 rounded-xl hover:border-white/10 transition-colors hover:-translate-y-1 duration-300"
             >
               <h3 className="text-xl font-bold mb-6 text-accent/90">{group.category}</h3>
               <ul className="space-y-3">

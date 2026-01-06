@@ -11,7 +11,7 @@ import { SceneContact } from "@/components/SceneContact";
 
 export default function Home() {
   useEffect(() => {
-    // Force scroll to top on load to ensure animations play correctly
+    // Force scroll to top on load
     window.scrollTo(0, 0);
   }, []);
 

@@ -1,37 +1,40 @@
 "use client";
 
-import { useRef, useState, useLayoutEffect } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useEffect, useState, useRef } from "react";
 import { projects } from "@/content/projects";
 import { cn } from "@/lib/utils";
-import { useReducedMotion } from "@/lib/motion";
 
 export const SceneProjects = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
   const [activeId, setActiveId] = useState<string>(projects[0].id);
-  const prefersReducedMotion = useReducedMotion();
 
-  useLayoutEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-
-    const ctx = gsap.context(() => {
-      projects.forEach((project) => {
-        ScrollTrigger.create({
-          trigger: `#project-card-${project.id}`,
-          start: "top center",
-          end: "bottom center",
-          onEnter: () => setActiveId(project.id),
-          onEnterBack: () => setActiveId(project.id),
+  // Use IntersectionObserver instead of GSAP ScrollTrigger
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Get ID from the element's ID (e.g. "project-card-iso-27001")
+            const id = entry.target.id.replace("project-card-", "");
+            setActiveId(id);
+          }
         });
-      });
-    }, containerRef);
+      },
+      {
+        rootMargin: "-20% 0px -50% 0px", // Trigger when element is near the center/top
+        threshold: 0.1,
+      }
+    );
 
-    return () => ctx.revert();
-  }, [prefersReducedMotion]);
+    projects.forEach((project) => {
+      const el = document.getElementById(`project-card-${project.id}`);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <section id="projects" ref={containerRef} className="py-24 md:py-32 relative">
+    <section id="projects" className="py-24 md:py-32 relative">
       <div className="container mx-auto px-6">
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-24">
           

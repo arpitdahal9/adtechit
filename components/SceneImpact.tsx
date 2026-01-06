@@ -1,10 +1,5 @@
 "use client";
 
-import { useRef, useLayoutEffect } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useReducedMotion } from "@/lib/motion";
-
 const highlights = [
   {
     value: "99.9%",
@@ -29,39 +24,12 @@ const highlights = [
 ];
 
 export const SceneImpact = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const prefersReducedMotion = useReducedMotion();
-
-  useLayoutEffect(() => {
-    if (prefersReducedMotion) return;
-    
-    gsap.registerPlugin(ScrollTrigger);
-
-    const ctx = gsap.context(() => {
-      gsap.from(".impact-item", {
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top 80%",
-          end: "bottom 20%",
-          toggleActions: "play none none reverse",
-        },
-        y: 40,
-        opacity: 0,
-        stagger: 0.1,
-        duration: 0.8,
-        ease: "power2.out",
-      });
-    }, containerRef);
-
-    return () => ctx.revert();
-  }, [prefersReducedMotion]);
-
   return (
-    <section ref={containerRef} className="py-24 md:py-32 border-t border-white/5 bg-surface/30">
+    <section className="py-24 md:py-32 border-t border-white/5 bg-surface/30">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
           {highlights.map((item, idx) => (
-            <div key={idx} className="impact-item flex flex-col items-center text-center space-y-2">
+            <div key={idx} className="flex flex-col items-center text-center space-y-2">
               <span className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-white to-white/60">
                 {item.value}
               </span>
