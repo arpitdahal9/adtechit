@@ -1,10 +1,12 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { gsap } from "@/lib/gsap";
+import { useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { profile } from "@/content/profile";
 import { Mail, Linkedin } from "lucide-react";
 import { useReducedMotion } from "@/lib/motion";
+import { useIsomorphicLayoutEffect } from "@/lib/gsap";
 
 export const SceneHero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -12,8 +14,11 @@ export const SceneHero = () => {
   const imageRef = useRef<HTMLImageElement>(null);
   const prefersReducedMotion = useReducedMotion();
 
-  useEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     if (prefersReducedMotion) return;
+    
+    // Register plugin locally
+    gsap.registerPlugin(ScrollTrigger);
 
     const ctx = gsap.context(() => {
       const tl = gsap.timeline();
@@ -86,7 +91,7 @@ export const SceneHero = () => {
         </div>
       </div>
       
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-50">
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-bounce opacity-50">
         <div className="w-6 h-10 border-2 border-white/20 rounded-full flex justify-center p-2">
           <div className="w-1 h-2 bg-white/60 rounded-full" />
         </div>
