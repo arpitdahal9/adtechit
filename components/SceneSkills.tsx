@@ -1,7 +1,8 @@
 "use client";
 
-import { useRef } from "react";
-import { gsap, ScrollTrigger, useIsomorphicLayoutEffect } from "@/lib/gsap";
+import { useRef, useLayoutEffect } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { skills } from "@/content/skills";
 import { useReducedMotion } from "@/lib/motion";
 import { Check } from "lucide-react";
@@ -10,10 +11,9 @@ export const SceneSkills = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const prefersReducedMotion = useReducedMotion();
 
-  useIsomorphicLayoutEffect(() => {
+  useLayoutEffect(() => {
     if (prefersReducedMotion) return;
     
-    // Ensure plugin is registered
     gsap.registerPlugin(ScrollTrigger);
 
     const ctx = gsap.context(() => {

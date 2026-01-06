@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect } from "react";
-import { registerGsap } from "@/lib/gsap";
 import { Nav } from "@/components/Nav";
 import { SceneHero } from "@/components/SceneHero";
 import { SceneImpact } from "@/components/SceneImpact";
@@ -12,8 +11,6 @@ import { SceneContact } from "@/components/SceneContact";
 
 export default function Home() {
   useEffect(() => {
-    // This now safely registers or does nothing if already registered
-    registerGsap();
     // Force scroll to top on load to ensure animations play correctly
     window.scrollTo(0, 0);
   }, []);
