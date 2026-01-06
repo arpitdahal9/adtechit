@@ -10,9 +10,9 @@ const highlights = [
     detail: "Managing enterprise systems and operations.",
   },
   {
-    value: "Android",
-    label: "App Developer",
-    detail: "Creator of 'Day Trading Journal' on Play Store.",
+    value: "Cloud Native",
+    label: "Microsoft Stack",
+    detail: "Expert in Entra ID, Intune, and M365 Security.",
   },
   {
     value: "SecOps",
