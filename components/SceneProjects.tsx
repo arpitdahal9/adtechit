@@ -1,21 +1,22 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { gsap, ScrollTrigger } from "@/lib/gsap";
+import { useRef, useState } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { projects } from "@/content/projects";
 import { cn } from "@/lib/utils";
 import { useReducedMotion } from "@/lib/motion";
+import { useIsomorphicLayoutEffect } from "@/lib/gsap";
 
 export const SceneProjects = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeId, setActiveId] = useState<string>(projects[0].id);
   const prefersReducedMotion = useReducedMotion();
 
-  useEffect(() => {
-    // If reduced motion, we rely on native scroll and simple intersection observer logic if needed, 
-    // but GSAP ScrollTrigger can also handle "markers" without movement.
-    // Here we'll just set up simple active state tracking.
-    
+  useIsomorphicLayoutEffect(() => {
+    // Register plugin locally
+    gsap.registerPlugin(ScrollTrigger);
+
     const ctx = gsap.context(() => {
       projects.forEach((project) => {
         ScrollTrigger.create({
