@@ -9,6 +9,7 @@ const config: Config = {
     extend: {
       colors: {
         background: "#050505", // Very dark, almost black
+        foreground: "#FFFFFF",
         surface: "#111111",
         primary: "#FFFFFF",
         secondary: "#888888",
