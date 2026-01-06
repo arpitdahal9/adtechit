@@ -6,7 +6,7 @@ A premium, scroll-driven portfolio website built with Next.js, Tailwind CSS, and
 
 - **Framework:** Next.js 14 (App Router)
 - **Styling:** Tailwind CSS
-- **Animation:** GSAP (ScrollTrigger) + Native CSS transitions
+- **Animation:** CSS Transitions + Intersection Observer (Native)
 - **Language:** TypeScript
 - **Icons:** Lucide React
 
