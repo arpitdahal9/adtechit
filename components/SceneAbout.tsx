@@ -12,7 +12,7 @@ export const SceneAbout = () => {
             <h2 className="text-3xl font-bold">About Me</h2>
             <div className="prose prose-invert prose-lg text-secondary">
               <p>
-                I am a Systems Administrator with over 2.5 years of experience in enterprise environments,
+                I am a Systems Administrator with over 3 years of experience in enterprise environments,
                 where I've transitioned from frontline support to managing core infrastructure and security operations.
                 My work is defined by a calm, methodical approach to troubleshooting and a strong ownership mindset—I don't just fix issues; I look for the root cause and document the solution.
               </p>
