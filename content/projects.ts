@@ -10,6 +10,15 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: "trading-app",
+    title: "Day Trading Journal (Android App)",
+    category: "Mobile Dev",
+    context: "Developed and published a comprehensive trading journal application for active traders.",
+    whatIDid: "Built the full application lifecycle from concept to Play Store release. Implemented local database storage, performance analytics, and responsive UI.",
+    outcome: "Successfully launched on Google Play Store, providing traders with a tool to track performance and improve discipline.",
+    tags: ["Android Development", "Mobile App", "Google Play Store", "Java/Kotlin"],
+  },
+  {
     id: "jira-itsm",
     title: "Enterprise Service Management Rollout",
     category: "Operations",

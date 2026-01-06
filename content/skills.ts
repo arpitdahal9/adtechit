@@ -10,13 +10,13 @@ export const skills = [
     ],
   },
   {
-    category: "Identity & Cloud",
+    category: "DevOps & Cloud",
     items: [
+      "CI/CD Pipelines",
       "Azure Active Directory (Entra ID)",
       "Microsoft 365 Admin Center",
       "Exchange Online",
       "IAM Lifecycle",
-      "MFA / Conditional Access",
     ],
   },
   {
@@ -40,13 +40,13 @@ export const skills = [
     ],
   },
   {
-    category: "Tooling",
+    category: "Tooling & Development",
     items: [
-      "Jira Service Management",
+      "Android Development",
       "PowerShell Scripting",
+      "Jira Service Management",
       "Nmap / Wireshark",
       "Backup Solutions (Veeam)",
-      "Remote Support Tools",
     ],
   },
 ];

@@ -5,24 +5,24 @@ import { motion, useScroll, useTransform } from "framer-motion";
 
 const highlights = [
   {
-    value: "99.9%",
-    label: "Uptime Maintained",
-    detail: "For core IIS & internal business services.",
+    value: "3+ Years",
+    label: "Experience",
+    detail: "Managing enterprise systems and operations.",
   },
   {
-    value: "< 15m",
-    label: "Response Time",
-    detail: "Achieved for critical P1 incidents via improved triage.",
+    value: "Android",
+    label: "App Developer",
+    detail: "Creator of 'Day Trading Journal' on Play Store.",
   },
   {
-    value: "100%",
-    label: "Audit Readiness",
-    detail: "Technical evidence aligned for ISO 27001 certification.",
+    value: "SecOps",
+    label: "Security First",
+    detail: "Integrating security into every layer of infrastructure.",
   },
   {
-    value: "Zero",
-    label: "Vendor Reliance",
-    detail: "Eliminated MSP dependency for core infrastructure.",
+    value: "DevOps",
+    label: "CI/CD Integration",
+    detail: "Automating workflows for reliable deployments.",
   },
 ];
 

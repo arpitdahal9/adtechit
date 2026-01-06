@@ -1,7 +1,7 @@
 export const profile = {
   name: "Arpit Dahal",
   headline: "Systems Administrator | Infrastructure & Security Operations",
-  shortBio: "Delivering resilient infrastructure and security operations with an ownership mindset. Bridging the gap between reliable systems administration and modern cyber defense.",
+  shortBio: "Systems Administrator with 3+ years of experience in enterprise operations. Specializing in resilient infrastructure, CI/CD DevOps workflows, and security-first engineering.",
   email: "arpitdahal9@gmail.com",
   linkedin: "https://linkedin.com/in/arpitdahal",
   location: "Australia",
